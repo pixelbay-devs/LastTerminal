@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkl7ke8ibbc60"]
+
+[ext_resource type="Script" uid="uid://w4vvrd466o7e" path="res://Script/tentacleEventManager.gd" id="1_1rh1t"]
+[ext_resource type="Texture2D" uid="uid://d01kpjjuowo0u" path="res://Asset/tentacleOverlay/tentacles viewport1.png" id="2_c81ex"]
+[ext_resource type="Texture2D" uid="uid://dbsf0kmivoy2p" path="res://Asset/tentacleOverlay/tentacles viewport2.png" id="3_7u3oj"]
+[ext_resource type="Texture2D" uid="uid://gane5awjwjsu" path="res://Asset/tentacleOverlay/tentacles viewport3.png" id="4_flevd"]
+[ext_resource type="Texture2D" uid="uid://cxg13si05qs18" path="res://Asset/tentacleOverlay/tentacles viewport4.png" id="5_86s53"]
+[ext_resource type="AudioStream" uid="uid://dioisld64y2sa" path="res://Music/tentacleoverlay.ogg" id="6_7u3oj"]
+[ext_resource type="AudioStream" uid="uid://ctrla2srn0bon" path="res://Music/rumble.ogg" id="7_flevd"]
+[ext_resource type="AudioStream" uid="uid://dv0der1bcw3vg" path="res://Music/groan.ogg" id="8_a7hxr"]
+[ext_resource type="AudioStream" uid="uid://bl05pbmx8ngvh" path="res://Music/uahhh.ogg" id="9_rfowg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7hxr"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_c81ex")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_7u3oj")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_flevd")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_86s53")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="tentacleEventManager" type="Node"]
+script = ExtResource("1_1rh1t")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(579, 326)
+sprite_frames = SubResource("SpriteFrames_a7hxr")
+frame = 3
+frame_progress = 1.0
+
+[node name="tentaclesound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7u3oj")
+max_distance = 1e+08
+
+[node name="rumble" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_flevd")
+max_distance = 1e+08
+
+[node name="groan" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_a7hxr")
+
+[node name="uahh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_rfowg")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

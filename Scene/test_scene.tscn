@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgspla1rocahw"]
+
+[ext_resource type="Texture2D" uid="uid://d11es1af7oqw" path="res://Asset/simpleCircle.png" id="3_yg8v8"]
+[ext_resource type="PackedScene" uid="uid://bxsnatxdc8f2c" path="res://Scene/player.tscn" id="4_mtw86"]
+[ext_resource type="PackedScene" uid="uid://cum83oyruhlab" path="res://Scene/locker.tscn" id="5_xdm7g"]
+[ext_resource type="PackedScene" uid="uid://bkl7ke8ibbc60" path="res://Scene/tentacle_event_manager.tscn" id="6_yg8v8"]
+[ext_resource type="PackedScene" uid="uid://bbsk4xxalx2pe" path="res://Scene/strangle_mini_game.tscn" id="7_mtw86"]
+[ext_resource type="PackedScene" uid="uid://c3a4wxhq3xakh" path="res://Scene/colletible.tscn" id="8_pyarj"]
+[ext_resource type="PackedScene" uid="uid://bry4tsqnoqjog" path="res://Scene/front_door.tscn" id="9_nk2wp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy2ab"]
+
+[node name="testScene" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(955, 35)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("3_yg8v8")
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D"]
+scale = Vector2(0.764892, 0.764892)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("3_yg8v8")
+
+[node name="PointLight2D3" type="PointLight2D" parent="PointLight2D/PointLight2D2"]
+scale = Vector2(0.702997, 0.702997)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("3_yg8v8")
+
+[node name="Player" parent="." instance=ExtResource("4_mtw86")]
+z_index = 2
+position = Vector2(466, 129)
+
+[node name="Locker" parent="." instance=ExtResource("5_xdm7g")]
+z_index = 2
+position = Vector2(281, 102)
+scale = Vector2(5.56167, 5.56167)
+playerPath = NodePath("../Player")
+
+[node name="tentacleEventManager" parent="." instance=ExtResource("6_yg8v8")]
+player = NodePath("../Player")
+
+[node name="strangleMiniGame" parent="." instance=ExtResource("7_mtw86")]
+progressSpeed = 30.0
+
+[node name="colletible" parent="." instance=ExtResource("8_pyarj")]
+z_index = 1
+position = Vector2(759, 223)
+
+[node name="frontDoor" parent="." instance=ExtResource("9_nk2wp")]
+z_index = 1
+position = Vector2(607, 219)
+scale = Vector2(2.43327, 2.43327)
+isFakeDoor = true
+tentacleManager = NodePath("../tentacleEventManager")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="frontDoor"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="frontDoor/StaticBody2D"]
+shape = SubResource("RectangleShape2D_cy2ab")

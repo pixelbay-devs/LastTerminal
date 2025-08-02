@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://tx4lwn6ixpu1"]
+
+[ext_resource type="Script" uid="uid://m7r8yexnogqj" path="res://tentacke_end_chase.gd" id="1_tfw1l"]
+[ext_resource type="Texture2D" uid="uid://nwi5snt2phuc" path="res://Asset/tentGround/tentacles from ground1.png" id="2_y4ure"]
+[ext_resource type="Texture2D" uid="uid://b3x7w1k233osn" path="res://Asset/tentGround/tentacles from ground2.png" id="3_8pyhe"]
+[ext_resource type="Texture2D" uid="uid://due0a6hmsy7bx" path="res://Asset/tentGround/tentacles from ground3.png" id="4_38mac"]
+[ext_resource type="Texture2D" uid="uid://dmdgs3igv5oe6" path="res://Asset/tentGround/tentacles from ground4.png" id="5_c7l0c"]
+[ext_resource type="Texture2D" uid="uid://b1iglc1y8tyb" path="res://Asset/tentGround/tentacles from ground5.png" id="6_05jd5"]
+[ext_resource type="AudioStream" uid="uid://dioisld64y2sa" path="res://Music/tentacleoverlay.ogg" id="7_8pyhe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfw1l"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_y4ure")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_8pyhe")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_38mac")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_c7l0c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_05jd5")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pyhe"]
+size = Vector2(19, 23.3079)
+
+[node name="tentackeEndChase" type="Node2D"]
+z_index = 455
+script = ExtResource("1_tfw1l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -18)
+scale = Vector2(1.29462, 1.35936)
+sprite_frames = SubResource("SpriteFrames_tfw1l")
+animation = &"attack"
+frame = 4
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -8.69211)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -1.65394)
+shape = SubResource("RectangleShape2D_8pyhe")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_8pyhe")
+pitch_scale = 2.94
+autoplay = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://kjqandgmgu1x"]
+
+[ext_resource type="FontFile" uid="uid://dp01bl3gvl0j6" path="res://Font/04B_30__.TTF" id="1_3hbp5"]
+[ext_resource type="Script" uid="uid://bp31jiysww7nr" path="res://Scene/credits.gd" id="1_3rv14"]
+[ext_resource type="AudioStream" uid="uid://0pkrsj74bh4" path="res://Music/Peritune_Bewitched_Forest-chosic.com_.ogg" id="2_3rv14"]
+
+[sub_resource type="Animation" id="Animation_pb5xx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Congratulations
+Player"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:label_settings:font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wofek"]
+resource_name = "new_animation"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 5.00675, 7.0082, 9.00337, 10.9985, 11.0315, 12.9667, 15, 17, 18.9667, 21.0333, 23.0108),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Congratulations
+Player", "You ran", "You fought", "You hid", "You had hope	", "That make you", "That makes you", "That makes you
+HUMAN", "Thank You
+FOR PLAYING", "Also 
+one last thing", "Forgive me", "Forgive me
+MORI", "CREDITS"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:label_settings:font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(23.0108, 24.9913),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eg8ay"]
+_data = {
+&"RESET": SubResource("Animation_pb5xx"),
+&"new_animation": SubResource("Animation_wofek")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_yv8n4"]
+font = ExtResource("1_3hbp5")
+font_size = 36
+font_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgpcl"]
+line_spacing = 7.61
+font = ExtResource("1_3hbp5")
+font_size = 25
+font_color = Color(1, 1, 1, 0)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rv14")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eg8ay")
+}
+autoplay = "new_animation"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1176.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 374.0
+offset_top = 265.0
+offset_right = 808.0
+offset_bottom = 342.0
+text = "Congratulations
+Player"
+label_settings = SubResource("LabelSettings_yv8n4")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-14, 0)
+stream = ExtResource("2_3rv14")
+autoplay = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 342.0
+offset_right = 937.0
+offset_bottom = 542.0
+text = "DEVELOPER: Mayank Koli
+
+Artist: Mahati Mestri
+
+BGM: Bewitched Forest by PeriTune
+	Panic Attack by David Robson
+Imperium by talekeeper Music"
+label_settings = SubResource("LabelSettings_fgpcl")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

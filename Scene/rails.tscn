@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbl84vlcxa608"]
+
+[ext_resource type="Script" uid="uid://bx2fmaxhmlemx" path="res://Scene/floor_tile.gd" id="1_duioq"]
+[ext_resource type="Texture2D" uid="uid://c2yoga6gttck" path="res://Asset/train/tileset.png" id="2_k1ojb"]
+
+[node name="rails" type="Node2D"]
+script = ExtResource("1_duioq")
+moveSpeed = 180.0
+spriteNodes = Array[NodePath]([NodePath("Sprite2D")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_k1ojb")
+region_enabled = true
+region_rect = Rect2(320, 48, 80, 32)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -23.0
+offset_top = -80.0
+offset_right = 17.0
+offset_bottom = 80.0

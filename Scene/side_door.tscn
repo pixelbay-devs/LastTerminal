@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://chljvmqtbtklq"]
+
+[ext_resource type="Script" uid="uid://cmppkfgala6id" path="res://Script/door.gd" id="1_q11e4"]
+[ext_resource type="Texture2D" uid="uid://8lel8c8u3x5x" path="res://Asset/sideDoor/sideDoorFrame1.png" id="2_2i2ll"]
+[ext_resource type="Texture2D" uid="uid://bgtxsmglkdrxf" path="res://Asset/sideDoor/sideDoorFrame2.png" id="3_fern2"]
+[ext_resource type="Texture2D" uid="uid://b85xb4skknft8" path="res://Asset/sideDoor/sideDoorFrame3.png" id="4_oohv0"]
+[ext_resource type="Texture2D" uid="uid://ctdbeaecs0awi" path="res://Asset/sideDoor/sideDoorFrame4.png" id="5_tlw6c"]
+[ext_resource type="AudioStream" uid="uid://0ubkgxb7exfg" path="res://Music/open-door-sound-247415.ogg" id="6_fern2"]
+[ext_resource type="AudioStream" uid="uid://bka6h88u224sl" path="res://Music/heavy-breathing-14431.ogg" id="7_oohv0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cuvw"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_2i2ll")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_fern2")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_oohv0")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_tlw6c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_tlw6c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_tlw6c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_2i2ll")
+}],
+"loop": false,
+"name": &"doorOpen",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20v3j"]
+size = Vector2(14, 7)
+
+[sub_resource type="Animation" id="Animation_lr4tc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cdd6m"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.193031, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qm7vc"]
+_data = {
+&"RESET": SubResource("Animation_lr4tc"),
+&"transition": SubResource("Animation_cdd6m")
+}
+
+[node name="sideDoor" type="Area2D"]
+script = ExtResource("1_q11e4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -7.0
+offset_top = -8.0
+offset_right = -4.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4cuvw")
+animation = &"doorOpen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 2.18557e-08)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_20v3j")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qm7vc")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1153.0
+offset_bottom = 659.0
+color = Color(0, 0, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fern2")
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oohv0")
+volume_db = 11.0
+max_distance = 76.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

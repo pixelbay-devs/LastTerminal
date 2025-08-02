@@ -1,0 +1,797 @@
+[gd_scene load_steps=25 format=3 uid="uid://ba8m4ywmxbvbx"]
+
+[ext_resource type="Script" uid="uid://rvsumore0b00" path="res://Scene/chase_scene.gd" id="1_8ftpw"]
+[ext_resource type="Texture2D" uid="uid://bvxq2wuow351b" path="res://icon.svg" id="1_323m2"]
+[ext_resource type="PackedScene" uid="uid://tx4lwn6ixpu1" path="res://Scene/tentacke_end_chase.tscn" id="2_4tgrs"]
+[ext_resource type="PackedScene" uid="uid://cuaxmci6qr36m" path="res://Scene/player_2.tscn" id="2_8ftpw"]
+[ext_resource type="PackedScene" uid="uid://b6a5lh5l3mr6t" path="res://Scene/train.tscn" id="5_1s40i"]
+[ext_resource type="Texture2D" uid="uid://d11es1af7oqw" path="res://Asset/simpleCircle.png" id="5_142op"]
+[ext_resource type="Texture2D" uid="uid://bjfrtu35c30o4" path="res://Asset/train/tileset x1.png" id="6_64um3"]
+[ext_resource type="PackedScene" uid="uid://cfyxdqe1tscvl" path="res://Scene/floormmanager.tscn" id="7_waty0"]
+[ext_resource type="Script" uid="uid://dn45xdkwi3jy5" path="res://Scene/camera_2d.gd" id="7_wcq06"]
+[ext_resource type="AudioStream" uid="uid://nos0smsg1km2" path="res://Music/chaseMusic.ogg" id="9_wcq06"]
+[ext_resource type="FontFile" uid="uid://dp01bl3gvl0j6" path="res://Font/04B_30__.TTF" id="11_sji7l"]
+[ext_resource type="PackedScene" uid="uid://biayxi068gd1v" path="res://Scene/railTile.tscn" id="11_u0myc"]
+[ext_resource type="Texture2D" uid="uid://bw3wdtfsudhnk" path="res://Asset/train/catch trai.png" id="12_4yxha"]
+[ext_resource type="AudioStream" uid="uid://dgg3i0p3v1ydp" path="res://Music/railway-train-339502.ogg" id="12_fmdfj"]
+[ext_resource type="AudioStream" uid="uid://dj5p7ku3qfx5k" path="res://Music/welcomeback.ogg" id="14_myxs3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0myc"]
+size = Vector2(97.4367, 143.762)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcq06"]
+texture = ExtResource("6_64um3")
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+6:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+15:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+24:2/0 = 0
+25:2/0 = 0
+26:2/0 = 0
+27:2/0 = 0
+28:2/0 = 0
+29:2/0 = 0
+64:2/0 = 0
+65:2/0 = 0
+66:2/0 = 0
+67:2/0 = 0
+68:2/0 = 0
+69:2/0 = 0
+70:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+6:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+24:3/0 = 0
+25:3/0 = 0
+26:3/0 = 0
+27:3/0 = 0
+28:3/0 = 0
+29:3/0 = 0
+64:3/0 = 0
+65:3/0 = 0
+66:3/0 = 0
+67:3/0 = 0
+68:3/0 = 0
+69:3/0 = 0
+70:3/0 = 0
+2:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+19:4/0 = 0
+28:4/0 = 0
+29:4/0 = 0
+64:4/0 = 0
+65:4/0 = 0
+2:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+19:5/0 = 0
+28:5/0 = 0
+29:5/0 = 0
+64:5/0 = 0
+65:5/0 = 0
+2:6/0 = 0
+19:6/0 = 0
+24:6/0 = 0
+25:6/0 = 0
+26:6/0 = 0
+27:6/0 = 0
+28:6/0 = 0
+29:6/0 = 0
+2:7/0 = 0
+19:7/0 = 0
+24:7/0 = 0
+25:7/0 = 0
+26:7/0 = 0
+27:7/0 = 0
+28:7/0 = 0
+29:7/0 = 0
+2:8/0 = 0
+19:8/0 = 0
+26:8/0 = 0
+27:8/0 = 0
+2:9/0 = 0
+19:9/0 = 0
+26:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+21:10/0 = 0
+24:10/0 = 0
+25:10/0 = 0
+26:10/0 = 0
+27:10/0 = 0
+28:10/0 = 0
+29:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+20:11/0 = 0
+21:11/0 = 0
+24:11/0 = 0
+25:11/0 = 0
+26:11/0 = 0
+27:11/0 = 0
+28:11/0 = 0
+29:11/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+22:12/0 = 0
+23:12/0 = 0
+24:12/0 = 0
+25:12/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+23:13/0 = 0
+24:13/0 = 0
+25:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+24:14/0 = 0
+25:14/0 = 0
+26:14/0 = 0
+27:14/0 = 0
+28:14/0 = 0
+29:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
+20:15/0 = 0
+21:15/0 = 0
+24:15/0 = 0
+25:15/0 = 0
+26:15/0 = 0
+27:15/0 = 0
+28:15/0 = 0
+29:15/0 = 0
+2:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+19:16/0 = 0
+2:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+19:17/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+6:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+12:18/0 = 0
+13:18/0 = 0
+15:18/0 = 0
+17:18/0 = 0
+18:18/0 = 0
+19:18/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+6:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+12:19/0 = 0
+13:19/0 = 0
+15:19/0 = 0
+17:19/0 = 0
+18:19/0 = 0
+19:19/0 = 0
+4:20/0 = 0
+5:20/0 = 0
+6:20/0 = 0
+7:20/0 = 0
+8:20/0 = 0
+9:20/0 = 0
+10:20/0 = 0
+11:20/0 = 0
+12:20/0 = 0
+13:20/0 = 0
+14:20/0 = 0
+15:20/0 = 0
+16:20/0 = 0
+17:20/0 = 0
+4:21/0 = 0
+5:21/0 = 0
+6:21/0 = 0
+7:21/0 = 0
+8:21/0 = 0
+9:21/0 = 0
+10:21/0 = 0
+11:21/0 = 0
+12:21/0 = 0
+13:21/0 = 0
+14:21/0 = 0
+15:21/0 = 0
+16:21/0 = 0
+17:21/0 = 0
+32:2/0 = 0
+32:1/0 = 0
+33:1/0 = 0
+34:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_142op"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_wcq06")
+
+[sub_resource type="LabelSettings" id="LabelSettings_myxs3"]
+font = ExtResource("11_sji7l")
+font_size = 55
+
+[sub_resource type="LabelSettings" id="LabelSettings_sji7l"]
+font = ExtResource("11_sji7l")
+font_size = 56
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmdfj"]
+size = Vector2(659, 54)
+
+[sub_resource type="Animation" id="Animation_36her"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/catchTrain:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_4yxha")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/catchTrain:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6ayav"]
+resource_name = "new_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/catchTrain:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_4yxha")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/catchTrain:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.00145),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjpb7"]
+_data = {
+&"RESET": SubResource("Animation_36her"),
+&"new_animation": SubResource("Animation_6ayav")
+}
+
+[node name="chaseScene" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_8ftpw")
+tentacleScene = ExtResource("2_4tgrs")
+player = NodePath("player2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -845
+scale = Vector2(121.051, 1413.59)
+texture = ExtResource("1_323m2")
+
+[node name="train" parent="." instance=ExtResource("5_1s40i")]
+z_index = 2
+position = Vector2(0, -132)
+scale = Vector2(0.872361, 0.994701)
+
+[node name="Area2D" type="Area2D" parent="train"]
+z_index = 4
+position = Vector2(-1.14631, 56.2983)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="train/Area2D"]
+position = Vector2(1.71947, -13.572)
+shape = SubResource("RectangleShape2D_u0myc")
+
+[node name="player2" parent="." instance=ExtResource("2_8ftpw")]
+z_index = 5
+position = Vector2(0, 69)
+moveSpeed = 50.0
+upwardSpeed = 1.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="player2"]
+position = Vector2(2, -45)
+scale = Vector2(1.01726, 1.01726)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+energy = 2.37
+texture = ExtResource("5_142op")
+
+[node name="PointLight2D2" type="PointLight2D" parent="player2/PointLight2D2"]
+scale = Vector2(0.764892, 0.764892)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("5_142op")
+
+[node name="PointLight2D3" type="PointLight2D" parent="player2/PointLight2D2/PointLight2D2"]
+visible = false
+position = Vector2(4.0232, 0)
+scale = Vector2(0.702997, 0.702997)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("5_142op")
+
+[node name="TentacleTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+tile_set = SubResource("TileSet_142op")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(7, 3)
+zoom = Vector2(2.5, 2.5)
+script = ExtResource("7_wcq06")
+
+[node name="flors" type="Node2D" parent="."]
+
+[node name="floormmanager" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -178)
+
+[node name="floormmanager2" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -146)
+
+[node name="floormmanager3" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -114)
+
+[node name="floormmanager4" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -82)
+
+[node name="floormmanager5" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -50)
+
+[node name="floormmanager6" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -18)
+
+[node name="floormmanager7" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, 14)
+
+[node name="floormmanager8" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, 46)
+
+[node name="floormmanager9" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, 78)
+
+[node name="floormmanager10" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, 110)
+
+[node name="floormmanager11" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, 142)
+
+[node name="floormmanager12" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, 174)
+
+[node name="floormmanager13" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -178)
+
+[node name="floormmanager14" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -146)
+
+[node name="floormmanager15" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -114)
+
+[node name="floormmanager16" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -82)
+
+[node name="floormmanager17" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -50)
+
+[node name="floormmanager18" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -18)
+
+[node name="floormmanager19" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, 14)
+
+[node name="floormmanager20" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, 46)
+
+[node name="floormmanager21" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, 78)
+
+[node name="floormmanager22" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, 110)
+
+[node name="floormmanager23" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, 142)
+
+[node name="floormmanager24" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, 174)
+
+[node name="floormmanager25" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -178)
+
+[node name="floormmanager26" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -146)
+
+[node name="floormmanager27" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -114)
+
+[node name="floormmanager28" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -82)
+
+[node name="floormmanager29" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -50)
+
+[node name="floormmanager30" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -18)
+
+[node name="floormmanager31" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, 14)
+
+[node name="floormmanager32" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, 46)
+
+[node name="floormmanager33" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, 78)
+
+[node name="floormmanager34" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, 110)
+
+[node name="floormmanager35" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, 142)
+
+[node name="floormmanager36" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, 174)
+
+[node name="floormmanager37" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -178)
+
+[node name="floormmanager49" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -210)
+
+[node name="floormmanager50" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -210)
+
+[node name="floormmanager51" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -210)
+
+[node name="floormmanager52" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -210)
+
+[node name="floormmanager53" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -242)
+
+[node name="floormmanager54" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -242)
+
+[node name="floormmanager55" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -242)
+
+[node name="floormmanager56" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -242)
+
+[node name="floormmanager57" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -274)
+
+[node name="floormmanager58" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -274)
+
+[node name="floormmanager59" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -274)
+
+[node name="floormmanager60" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -274)
+
+[node name="floormmanager61" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-272, -306)
+
+[node name="floormmanager62" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(-112, -306)
+
+[node name="floormmanager63" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(48, -306)
+
+[node name="floormmanager64" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -306)
+
+[node name="floormmanager38" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -146)
+
+[node name="floormmanager39" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -114)
+
+[node name="floormmanager40" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -82)
+
+[node name="floormmanager41" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -50)
+
+[node name="floormmanager42" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, -18)
+
+[node name="floormmanager43" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, 14)
+
+[node name="floormmanager44" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, 46)
+
+[node name="floormmanager45" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, 78)
+
+[node name="floormmanager46" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, 110)
+
+[node name="floormmanager47" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, 142)
+
+[node name="floormmanager48" parent="flors" instance=ExtResource("7_waty0")]
+position = Vector2(208, 174)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_wcq06")
+autoplay = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.408329, 0.408329, 0.408329, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 85.0
+offset_top = 537.0
+offset_right = 1247.0
+offset_bottom = 604.0
+text = "PRESS SPACE TO JUMP"
+label_settings = SubResource("LabelSettings_myxs3")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 108.0
+offset_top = 72.0
+offset_right = 1093.0
+offset_bottom = 189.0
+text = "DODGE THE TENTACLES
+AND CATCH THE TRAIN
+<-A        D->"
+label_settings = SubResource("LabelSettings_sji7l")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+z_index = 300
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="catchTrain" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(575.75, 324.25)
+scale = Vector2(6.3674, 5.01938)
+texture = ExtResource("12_4yxha")
+
+[node name="rails2" type="Node2D" parent="."]
+position = Vector2(0, -184)
+
+[node name="floorTile" parent="rails2" instance=ExtResource("11_u0myc")]
+
+[node name="floorTile2" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -32)
+
+[node name="floorTile3" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -64)
+
+[node name="floorTile4" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -96)
+
+[node name="floorTile5" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -128)
+
+[node name="floorTile6" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -160)
+
+[node name="floorTile7" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -192)
+
+[node name="floorTile8" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -224)
+
+[node name="floorTile9" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -256)
+
+[node name="floorTile10" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -288)
+
+[node name="floorTile11" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -320)
+
+[node name="floorTile12" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, -352)
+
+[node name="floorTile13" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 128)
+
+[node name="floorTile14" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 96)
+
+[node name="floorTile15" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 64)
+
+[node name="floorTile16" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 32)
+
+[node name="floorTile17" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 256)
+
+[node name="floorTile18" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 224)
+
+[node name="floorTile19" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 192)
+
+[node name="floorTile20" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 160)
+
+[node name="floorTile21" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 384)
+
+[node name="floorTile22" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 352)
+
+[node name="floorTile23" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 320)
+
+[node name="floorTile24" parent="rails2" instance=ExtResource("11_u0myc")]
+position = Vector2(0, 288)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20.5, -57)
+shape = SubResource("RectangleShape2D_fmdfj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20.5, 215)
+shape = SubResource("RectangleShape2D_fmdfj")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-213, -6)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_fmdfj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(281, 19)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_fmdfj")
+
+[node name="train2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_fmdfj")
+volume_db = -1.981
+
+[node name="tut" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_myxs3")
+volume_db = 16.81
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pjpb7")
+}
+
+[connection signal="body_entered" from="train/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="TentacleTimer" to="." method="_on_tentacle_timer_timeout"]
+[connection signal="timeout" from="tut" to="." method="_on_tut_timeout"]

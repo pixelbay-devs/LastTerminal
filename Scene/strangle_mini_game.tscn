@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbsk4xxalx2pe"]
+
+[ext_resource type="Script" uid="uid://di0hi583pybj7" path="res://Script/strangleMiniGame.gd" id="1_4qxtf"]
+[ext_resource type="Texture2D" uid="uid://buubxnu527bx1" path="res://Asset/tentacleOverlay/strangling tentacles1.png" id="2_hfxlp"]
+[ext_resource type="Texture2D" uid="uid://ccg333gbx5080" path="res://Asset/WhatsApp Image 2025-07-25 at 21.11.43.jpeg" id="2_rthul"]
+[ext_resource type="Texture2D" uid="uid://coya0i0hxh13t" path="res://Asset/tentacleOverlay/strangling tentacles2.png" id="3_xs7h8"]
+[ext_resource type="AudioStream" uid="uid://gni3ivv1o5mv" path="res://Music/ding-sound-246413.ogg" id="4_xs7h8"]
+[ext_resource type="AudioStream" uid="uid://k6upwpykysay" path="res://Music/tentaclefight.ogg" id="5_51chx"]
+[ext_resource type="FontFile" uid="uid://dp01bl3gvl0j6" path="res://Font/04B_30__.TTF" id="6_31bv6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51chx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hfxlp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xs7h8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rthul"]
+font = ExtResource("6_31bv6")
+font_size = 59
+
+[node name="strangleMiniGame" type="CanvasLayer"]
+script = ExtResource("1_4qxtf")
+greenZoneMinX = 400
+greenZoneMaxX = 900
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(185.113, 184.113)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(185.113, 549)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(550.887, 184.113)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(550.887, 549)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(916.887, 184.113)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(916.887, 549)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(1282.89, 184.113)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(1282.89, 549)
+scale = Vector2(2.5401, 2.5401)
+texture = ExtResource("2_rthul")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1162.0
+offset_bottom = 656.0
+color = Color(0.241156, 0.241156, 0.241156, 1)
+
+[node name="barBackground" type="ColorRect" parent="."]
+offset_top = 191.0
+offset_right = 1156.0
+offset_bottom = 231.0
+
+[node name="greenZone" type="ColorRect" parent="."]
+offset_left = 161.0
+offset_top = 191.0
+offset_right = 201.0
+offset_bottom = 231.0
+color = Color(0.607281, 0.591309, 0.688208, 1)
+
+[node name="progressBar" type="ColorRect" parent="."]
+offset_top = 192.0
+offset_right = 40.0
+offset_bottom = 232.0
+color = Color(0.607843, 0.592157, 0.686275, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(573, 505)
+scale = Vector2(14.0002, 14.0002)
+sprite_frames = SubResource("SpriteFrames_51chx")
+autoplay = "default"
+frame_progress = 0.970237
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xs7h8")
+
+[node name="tenfight" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_51chx")
+max_distance = 1e+08
+
+[node name="Label" type="Label" parent="."]
+offset_left = 314.0
+offset_top = 278.0
+offset_right = 890.0
+offset_bottom = 338.0
+text = "Press SPACE"
+label_settings = SubResource("LabelSettings_rthul")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

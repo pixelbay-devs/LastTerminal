@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfyxdqe1tscvl"]
+
+[ext_resource type="PackedScene" uid="uid://bxy5tmxeihaet" path="res://Scene/floor_tile.tscn" id="1_quu7r"]
+
+[node name="floormmanager" type="Node2D"]
+
+[node name="floorTile" parent="." instance=ExtResource("1_quu7r")]
+
+[node name="floorTile2" parent="." instance=ExtResource("1_quu7r")]
+position = Vector2(32, 0)
+
+[node name="floorTile3" parent="." instance=ExtResource("1_quu7r")]
+position = Vector2(64, 0)
+
+[node name="floorTile4" parent="." instance=ExtResource("1_quu7r")]
+position = Vector2(96, 0)
+
+[node name="floorTile5" parent="." instance=ExtResource("1_quu7r")]
+position = Vector2(128, 0)

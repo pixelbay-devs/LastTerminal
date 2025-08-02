@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://cuaxmci6qr36m"]
+
+[ext_resource type="Script" uid="uid://c56w0p6w66k12" path="res://player_2.gd" id="1_ui1wf"]
+[ext_resource type="Texture2D" uid="uid://dl77lmqmv1f0t" path="res://Asset/player.png" id="2_ui1wf"]
+[ext_resource type="Texture2D" uid="uid://d11es1af7oqw" path="res://Asset/simpleCircle.png" id="3_ibvbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl7oy"]
+size = Vector2(12, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibvbp"]
+atlas = ExtResource("2_ui1wf")
+region = Rect2(0, 168, 31, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl7oy"]
+atlas = ExtResource("2_ui1wf")
+region = Rect2(32, 168, 31, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbkh1"]
+atlas = ExtResource("2_ui1wf")
+region = Rect2(64, 168, 31, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqmqq"]
+atlas = ExtResource("2_ui1wf")
+region = Rect2(96, 168, 31, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq1op"]
+atlas = ExtResource("2_ui1wf")
+region = Rect2(128, 168, 31, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xq1op"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibvbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl7oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbkh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqmqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq1op")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player2" type="CharacterBody2D"]
+script = ExtResource("1_ui1wf")
+upwardSpeed = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_hl7oy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -3)
+sprite_frames = SubResource("SpriteFrames_xq1op")
+autoplay = "default"
+frame_progress = 0.0969034
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+scale = Vector2(0.649917, 0.649917)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("3_ibvbp")
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D"]
+scale = Vector2(0.764892, 0.764892)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("3_ibvbp")
+
+[node name="PointLight2D3" type="PointLight2D" parent="PointLight2D/PointLight2D2"]
+position = Vector2(4.0232, 0)
+scale = Vector2(0.702997, 0.702997)
+color = Color(0.201527, 0.201527, 0.201527, 1)
+texture = ExtResource("3_ibvbp")

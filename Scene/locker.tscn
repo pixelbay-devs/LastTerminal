@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://cum83oyruhlab"]
+
+[ext_resource type="Script" uid="uid://pw3ua4nlvj4a" path="res://Script/locker.gd" id="1_g4n3e"]
+[ext_resource type="Texture2D" uid="uid://b85pf2vhfwyr1" path="res://Asset/free-office-pixel-art/cabinet.png" id="2_fkoih"]
+[ext_resource type="FontFile" uid="uid://dp01bl3gvl0j6" path="res://Font/04B_30__.TTF" id="3_py7yd"]
+[ext_resource type="AudioStream" uid="uid://ddxhvy8eyuya6" path="res://Music/locker.ogg" id="4_mg6wl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py7yd"]
+size = Vector2(10, 21)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mg6wl"]
+font = ExtResource("3_py7yd")
+font_size = 38
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg6wl"]
+size = Vector2(10, 18)
+
+[node name="Locker" type="Area2D" node_paths=PackedStringArray("promptLabel")]
+script = ExtResource("1_g4n3e")
+promptLabel = NodePath("Label")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -5.0
+offset_top = -11.0
+offset_right = 6.0
+offset_bottom = 9.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_py7yd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.40625, 0.427632)
+texture = ExtResource("2_fkoih")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 1900
+offset_left = -10.0
+offset_top = -5.0
+offset_right = 484.0
+offset_bottom = 34.0
+scale = Vector2(0.053219, 0.053219)
+label_settings = SubResource("LabelSettings_mg6wl")
+horizontal_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_mg6wl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mg6wl")
+volume_db = 10.082
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

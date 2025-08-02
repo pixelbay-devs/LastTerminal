@@ -1,0 +1,512 @@
+[gd_scene load_steps=29 format=3 uid="uid://bubrt7tl6mjf7"]
+
+[ext_resource type="Texture2D" uid="uid://d13ofineehqqk" path="res://Asset/Cutscenes/trainInside1.png" id="1_nqr53"]
+[ext_resource type="Script" uid="uid://b5r62l60b1ygg" path="res://Script/introTrain.gd" id="1_pqe7r"]
+[ext_resource type="Script" uid="uid://bi7vanqayvs5r" path="res://addons/post_processing/node/post_process.gd" id="2_1hiio"]
+[ext_resource type="Script" uid="uid://0t5vmwup00ad" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_415ua"]
+[ext_resource type="Texture2D" uid="uid://dpm1mqqqkyaf1" path="res://Asset/Cutscenes/character last scene.png" id="4_415ua"]
+[ext_resource type="AudioStream" uid="uid://dgg3i0p3v1ydp" path="res://Music/railway-train-339502.ogg" id="6_w5qm0"]
+[ext_resource type="AudioStream" uid="uid://5y2puwg8m5yh" path="res://Music/tut.ogg" id="7_7qt62"]
+[ext_resource type="Texture2D" uid="uid://b04x61fqfps5" path="res://Asset/heartShard/1.png" id="8_gno4f"]
+[ext_resource type="Texture2D" uid="uid://cbletb3h200hl" path="res://Asset/heartShard/2.png" id="9_55663"]
+[ext_resource type="Texture2D" uid="uid://dhhpi2dwnc7fd" path="res://Asset/heartShard/3.png" id="10_c4rjr"]
+[ext_resource type="Texture2D" uid="uid://b3a5y5l7m276y" path="res://Asset/heartShard/4.png" id="11_4gvd0"]
+[ext_resource type="Texture2D" uid="uid://yqfbpaifl5t8" path="res://Asset/heartShard/5.png" id="12_id3os"]
+[ext_resource type="Texture2D" uid="uid://deyhrdwkgj66j" path="res://Asset/exoCircle.png" id="13_6fv6s"]
+[ext_resource type="FontFile" uid="uid://dp01bl3gvl0j6" path="res://Font/04B_30__.TTF" id="13_55663"]
+[ext_resource type="PackedScene" uid="uid://cum83oyruhlab" path="res://Scene/locker.tscn" id="14_v74lf"]
+[ext_resource type="Animation" uid="uid://cjh4k0jbqhquj" path="res://start.res" id="16_c4rjr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c4rjr"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 232.395, 1)
+gravity = Vector3(-200, 0, 0)
+scale_max = 2.15
+
+[sub_resource type="Resource" id="Resource_66pqg"]
+script = ExtResource("3_415ua")
+reload = false
+ASCII = false
+ASCIISize = Vector2(4, 9)
+ChromaticAberration = false
+StrenghtCA = 1.0
+Blur = false
+L_O_D = 1.0
+FishEye = false
+FishEyeAspect = 1.0
+FishEyeDistortion = 1.0
+FishEyeRadius = 1.0
+FishEyeAlpha = 1.0
+FishEyeCrop = 1.0
+FishEyeCropColor = Color(0, 0, 0, 1)
+Vignette = true
+VignetteIntensity = 0.4
+VignetteOpacity = 0.5
+VignetteR_G_B = Color(0, 0, 0, 1)
+Glitch = false
+GlitchRange = 0.05
+GlitchNoiseQuality = 250.0
+GlitchIntenity = 0.0088
+GlitchOffset = 0.03
+GlitchColorOffset = 1.3
+Outline = false
+OutlineColor = Color(0, 0, 0, 1)
+OutlineThreshold = 0.0
+OutlineBlend = 0.01
+Grain = false
+GrainPower = 75
+CircularWaves = false
+CircularWavesAmplitude = 2.0
+CircularWavesFrequency = 12.69
+CircularWavesRippleRate = 9.2
+SpeedLines = false
+SpeedLinesColor = Color(1, 1, 1, 1)
+SpeedLinesCount = 2
+SpeedLineDensity = 0.072
+SpeedLineSpeed = 20
+particle_storm = false
+particle_storm_color = Color(0.87, 0.78, 0.6, 1)
+particle_storm_intensity = 0.5
+particle_storm_chaos = 1.0
+particle_storm_scale = 1.0
+particle_storm_density = 1.0
+particle_storm_wind_direction = Vector2(1, 0.2)
+particle_storm_wind_speed = 1.0
+directional_drift = true
+directional_drift_color = Color(0.211765, 0.0980392, 0.0705882, 1)
+directional_drift_density = 0.3
+directional_drift_speed = 1.0
+directional_drift_scale = 30.0
+directional_drift_direction = Vector2(1, 0.5)
+directional_drift_layer_ratio = 1.2
+ColorCorrection = false
+ColorCorrectionTint = Color(0, 0, 0, 1)
+ColorCorrectionBrightness = 0.0
+ColorCorrectionSaturation = 0.0
+Palette = false
+Pixelate = false
+PixelatePixelSize = 8
+CRT = false
+overlay = false
+scanlines_opacity = 0.4
+scanlines_width = 0.25
+grille_opacity = 0.3
+pixelate = true
+roll_speed = 8.0
+roll_size = 15.0
+roll_variation = 1.8
+distort_intensity = 0.05
+noise_opacity = 0.4
+noise_speed = 5.0
+static_noise_intensity = 0.06
+aberration = 0.03
+brightness = 1.4
+discolor = true
+warp_amount = 1.0
+clip_warp = false
+vignette_intensity = 0.4
+vignette_opacity = 0.5
+AnalogMonitor = false
+AnalogMonitorResolution = Vector2(256, 256)
+ScreenShake = true
+ScreenShakePower = 0.16
+metadata/_custom_type_script = "uid://0t5vmwup00ad"
+
+[sub_resource type="Animation" id="Animation_w5qm0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect3:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("heartshards:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("exo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("locker:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HELLO and welcome to 
+ORACLE guidance system"]
+}
+
+[sub_resource type="Animation" id="Animation_4gvd0"]
+resource_name = "exo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("exo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c4rjr"]
+resource_name = "heart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("heartshards:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_id3os"]
+resource_name = "locker"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("locker:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_55663"]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("locker:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("exo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("heartshards:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5qm0"]
+_data = {
+&"RESET": SubResource("Animation_w5qm0"),
+&"exo": SubResource("Animation_4gvd0"),
+&"heart": SubResource("Animation_c4rjr"),
+&"locker": SubResource("Animation_id3os"),
+&"reset": SubResource("Animation_55663")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fv6s"]
+font = ExtResource("13_55663")
+font_size = 24
+font_color = Color(0.564706, 0.129412, 0.92549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_55663"]
+font = ExtResource("13_55663")
+font_size = 30
+
+[sub_resource type="Animation" id="Animation_6fv6s"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v74lf"]
+_data = {
+&"new_animation": SubResource("Animation_6fv6s"),
+&"start": ExtResource("16_c4rjr")
+}
+
+[node name="introTrain" type="Node2D" node_paths=PackedStringArray("ap")]
+script = ExtResource("1_pqe7r")
+ap = NodePath("AnimationPlayer")
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = -574.0
+offset_top = -393.0
+offset_right = 775.0
+offset_bottom = 414.0
+color = Color(0, 0, 0, 1)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(603, -31)
+amount = 318
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_c4rjr")
+
+[node name="TrainInside1" type="Sprite2D" parent="."]
+position = Vector2(0, -44.444)
+scale = Vector2(1.07579, 1.07579)
+texture = ExtResource("1_nqr53")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 520
+
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("2_1hiio")
+configuration = SubResource("Resource_66pqg")
+metadata/_custom_type_script = "uid://bi7vanqayvs5r"
+
+[node name="CharacterLastScene" type="Sprite2D" parent="."]
+position = Vector2(-3, 67.556)
+scale = Vector2(6.79688, 6.79688)
+texture = ExtResource("4_415ua")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w5qm0")
+}
+
+[node name="train sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_w5qm0")
+volume_db = -17.828
+autoplay = true
+
+[node name="tutsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7qt62")
+volume_db = 18.685
+autoplay = true
+max_distance = 37506.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 180
+offset_left = -751.0
+offset_top = -676.0
+offset_right = 856.0
+offset_bottom = -249.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 250
+offset_left = -777.0
+offset_top = 248.0
+offset_right = 765.0
+offset_bottom = 595.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -999.0
+offset_top = -858.0
+offset_right = 1116.0
+offset_bottom = 587.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="heartshards" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="heartshards"]
+offset_left = -574.0
+offset_top = 4.0
+offset_right = -132.0
+offset_bottom = 246.0
+color = Color(0, 0, 0, 1)
+
+[node name="1" type="Sprite2D" parent="heartshards"]
+position = Vector2(-376.845, 135.155)
+scale = Vector2(0.42062, 0.42062)
+texture = ExtResource("8_gno4f")
+
+[node name="2" type="Sprite2D" parent="heartshards"]
+position = Vector2(-349.845, 118.155)
+scale = Vector2(0.284613, 0.284613)
+texture = ExtResource("9_55663")
+
+[node name="3" type="Sprite2D" parent="heartshards"]
+position = Vector2(-347, 146)
+scale = Vector2(0.385618, 0.385618)
+texture = ExtResource("10_c4rjr")
+
+[node name="4" type="Sprite2D" parent="heartshards"]
+position = Vector2(-377, 166)
+scale = Vector2(0.401366, 0.401366)
+texture = ExtResource("11_4gvd0")
+
+[node name="5" type="Sprite2D" parent="heartshards"]
+position = Vector2(-368, 151)
+scale = Vector2(0.466378, 0.466378)
+texture = ExtResource("12_id3os")
+
+[node name="Label2" type="Label" parent="heartshards"]
+z_index = 255
+offset_left = -543.0
+offset_top = 30.0
+offset_right = -148.0
+offset_bottom = 58.0
+text = "Collect heart shards"
+label_settings = SubResource("LabelSettings_6fv6s")
+
+[node name="exo" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="exo"]
+z_index = 255
+offset_left = -532.0
+offset_top = -69.0
+offset_right = -180.0
+offset_bottom = -41.0
+text = "Perform exorcism"
+label_settings = SubResource("LabelSettings_6fv6s")
+
+[node name="ColorRect" type="ColorRect" parent="exo"]
+offset_left = -574.0
+offset_top = -249.0
+offset_right = -132.0
+offset_bottom = -7.0
+color = Color(0, 0, 0, 1)
+
+[node name="ExoCircle" type="Sprite2D" parent="exo"]
+position = Vector2(-363, -150)
+scale = Vector2(0.325376, 0.325376)
+texture = ExtResource("13_6fv6s")
+
+[node name="locker" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(35, 0)
+
+[node name="ColorRect" type="ColorRect" parent="locker"]
+offset_left = 304.0
+offset_top = -132.0
+offset_right = 519.0
+offset_bottom = 218.0
+color = Color(0, 0, 0, 1)
+
+[node name="Locker" parent="locker" instance=ExtResource("14_v74lf")]
+position = Vector2(411, 4)
+scale = Vector2(10.7917, 10.7917)
+
+[node name="Label3" type="Label" parent="locker"]
+z_index = 255
+offset_left = 221.0
+offset_top = 128.0
+offset_right = 616.0
+offset_bottom = 209.0
+text = "hide
+in 
+lockers"
+label_settings = SubResource("LabelSettings_6fv6s")
+horizontal_alignment = 1
+
+[node name="hTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="eTimer" type="Timer" parent="."]
+wait_time = 17.0
+one_shot = true
+autostart = true
+
+[node name="lTimer" type="Timer" parent="."]
+wait_time = 22.0
+one_shot = true
+autostart = true
+
+[node name="rTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -272.0
+offset_top = 162.0
+offset_right = 289.0
+offset_bottom = 193.0
+text = "HELLO and welcome to 
+ORACLE guidance system"
+label_settings = SubResource("LabelSettings_55663")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v74lf")
+}
+autoplay = "start"
+
+[connection signal="timeout" from="hTimer" to="." method="_on_h_timer_timeout"]
+[connection signal="timeout" from="eTimer" to="." method="_on_e_timer_timeout"]
+[connection signal="timeout" from="lTimer" to="." method="_on_l_timer_timeout"]
+[connection signal="timeout" from="rTimer" to="." method="_on_r_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

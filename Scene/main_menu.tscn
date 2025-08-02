@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnne4lr0jgw1g"]
+
+[ext_resource type="Texture2D" uid="uid://1ulkeh0xgkca" path="res://Asset/Cutscenes/mooriEmptyeyes3.png" id="1_87ipw"]
+[ext_resource type="Script" uid="uid://drf3wioga55d" path="res://Scene/main_menu.gd" id="1_kqsxi"]
+[ext_resource type="FontFile" uid="uid://dp01bl3gvl0j6" path="res://Font/04B_30__.TTF" id="2_hii65"]
+[ext_resource type="AudioStream" uid="uid://xjahjpv0a5ox" path="res://Music/suspense-tension-trailer-345353.ogg" id="3_hii65"]
+[ext_resource type="AudioStream" uid="uid://gyaigdotyypr" path="res://Music/hover-button-287656.ogg" id="5_pvidh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kqsxi"]
+font = ExtResource("2_hii65")
+font_size = 68
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvidh"]
+font = ExtResource("2_hii65")
+font_size = 76
+
+[node name="mainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kqsxi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1177.0
+offset_bottom = 671.0
+color = Color(0, 0, 0, 1)
+
+[node name="MooriEmptyeyes3" type="Sprite2D" parent="."]
+position = Vector2(715, 380)
+texture = ExtResource("1_87ipw")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 35.0
+offset_right = 502.0
+offset_bottom = 174.0
+text = "THE last
+terminal"
+label_settings = SubResource("LabelSettings_kqsxi")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 39.0
+offset_top = 223.0
+offset_right = 339.0
+offset_bottom = 321.0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_pvidh")
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hii65")
+autoplay = true
+
+[node name="hover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_pvidh")
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c4nm3oiajdfoj"]
+
+[node name="roomWorld" type="Node2D"]

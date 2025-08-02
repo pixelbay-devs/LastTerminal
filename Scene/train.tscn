@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6a5lh5l3mr6t"]
+
+[ext_resource type="Texture2D" uid="uid://bwql6ykmvuokr" path="res://Asset/train/train Back.png" id="1_lx02v"]
+[ext_resource type="Texture2D" uid="uid://ch4v3232k3844" path="res://Asset/train/train top.png" id="2_t6p60"]
+
+[node name="train" type="Node2D"]
+
+[node name="TrainBack" type="Sprite2D" parent="."]
+position = Vector2(0, 71.75)
+scale = Vector2(1, 0.535156)
+texture = ExtResource("1_lx02v")
+
+[node name="TrainTop" type="Sprite2D" parent="."]
+texture = ExtResource("2_t6p60")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://1bb8t3mfhhdc"]
+
+[ext_resource type="Script" uid="uid://dngugd6c4kcib" path="res://Scene/gameover_2.gd" id="1_s8oxc"]
+[ext_resource type="FontFile" uid="uid://dp01bl3gvl0j6" path="res://Font/04B_30__.TTF" id="2_f5abi"]
+[ext_resource type="Texture2D" uid="uid://87dfh5q5ob6m" path="res://Asset/Cutscenes/mooriEmptyeyes5.png" id="2_hi311"]
+[ext_resource type="AudioStream" uid="uid://gyaigdotyypr" path="res://Music/hover-button-287656.ogg" id="4_5w301"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5w301"]
+font = ExtResource("2_f5abi")
+font_size = 86
+
+[sub_resource type="LabelSettings" id="LabelSettings_hi311"]
+font = ExtResource("2_f5abi")
+font_size = 81
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_s8oxc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(761, 425)
+scale = Vector2(0.844136, 0.844136)
+texture = ExtResource("2_hi311")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 29.0
+offset_top = 209.0
+offset_right = 712.0
+offset_bottom = 296.0
+scale = Vector2(0.691331, 0.691331)
+
+[node name="Label" type="Label" parent="CanvasLayer/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TRY AGAIN"
+label_settings = SubResource("LabelSettings_5w301")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 29.0
+offset_top = 86.0
+offset_right = 1083.0
+offset_bottom = 168.0
+scale = Vector2(0.755359, 0.755359)
+text = "Almost there"
+label_settings = SubResource("LabelSettings_hi311")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5w301")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
